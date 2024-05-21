@@ -20,7 +20,7 @@ interface ExploreCardProps {
 
 export function ExploreCard({ title, description, problem, unique_value_proposition, competing_companies, b2b_or_b2c}: ExploreCardProps) {
   return (
-    <Card className="max-w-md">
+    <Card className="max-w-xxl">
       <CardHeader>
         <div className="space-y-2">
         <CardTitle className="text-2xl font-bold">{title}</CardTitle>
