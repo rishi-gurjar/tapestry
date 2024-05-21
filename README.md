@@ -15,5 +15,6 @@ Add your OpenAI key as "OPENAI_API_KEY=<enter_key_here>" in the .env file
 simultaneously in another terminal, run
 ```
 > * cd api
+> export FLASK_APP=index
 > flask run
 ```
