@@ -12,25 +12,19 @@ import {
 interface IdeaCardProps {
   title: string;
   description: string;
-  content: string;
   badge: string;
-  footer: string;
 }
 
-export function IdeaCard({ title, description, content, badge, footer }: IdeaCardProps) {
+export function IdeaCard({ title, description, badge }: IdeaCardProps) {
   return (
     <Card>
       <CardHeader>
+        <div>
         <CardTitle>{title}</CardTitle>
+        <Badge>{badge}</Badge>
+        </div>
         <CardDescription>{description}</CardDescription>
       </CardHeader>
-      <CardContent>
-        <p>{content}</p>
-        <Badge>{badge}</Badge>
-      </CardContent>
-      <CardFooter>
-        <p>{footer}</p>
-      </CardFooter>
     </Card>
   )
 }

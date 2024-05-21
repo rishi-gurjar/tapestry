@@ -11,10 +11,6 @@ export default function Home() {
           <InputWithButton />
         </div>
       </div>
-      {/* <div className="grid grid-cols-3 gap-4 items-start justify-start">
-      <IdeaCard title="Title 1" description="Description 1" content="Content 1" badge="Badge 1" footer="Footer 1" />
-      <IdeaCard title="Title 2" description="Description 2" content="Content 2" badge="Badge 2" footer="Footer 2" />
-      </div> */}
     </main>
   );
 }
