@@ -4,13 +4,14 @@ import { useState } from 'react';
 import { IdeaCard } from './ideaCard';
 import { LoadingButton } from '@/components/ui/spinButton';
 import { Skeleton } from "@/components/ui/skeleton"
+import { ExploreCard } from "./exploreCard";
 
 export function InputWithButton() {
   const [text, setText] = useState('');
   const [button_text, updateButton] = useState('Search');
   const [button_load, updateLoad] = useState('');
   const [struc_data, setStrucData] = useState([]);
-  const [explore_data, setExploreData] = useState('');
+  const [explore_data, setExploreData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async () => {
@@ -46,7 +47,8 @@ export function InputWithButton() {
     const data = await response.json();
     if (response.ok) {
       setIsLoading(false);
-      setExploreData(data.explore);      
+      let explore_arr = JSON.parse(data.explore);
+      setExploreData(explore_arr.ideas);      
     } else {
       alert('Failed to explore idea');
     }
@@ -71,10 +73,23 @@ export function InputWithButton() {
             <div className="space-y-2">
               <Skeleton className="h-4 w-[350px]" />
               <Skeleton className="h-4 w-[300px]" />
+              <Skeleton className="h-4 w-[300px]" />
             </div>
           </div>
         ) : (
-          <p className="max-w-[700px]">{explore_data}</p>
+          <div>
+            {explore_data.map((item, index) => (
+              <ExploreCard 
+                key={index} 
+                title={item.title} 
+                problem={item.problem} 
+                description={item.description} 
+                unique_value_proposition={item.unique_value_proposition} 
+                competing_companies={item.competing_companies} 
+                b2b_or_b2c={item.b2b_or_b2c} 
+              />
+            ))}
+          </div>
         )}
       </div>
     </div>

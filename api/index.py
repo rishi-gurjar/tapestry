@@ -1,5 +1,5 @@
 from flask import Flask, request
-from ideas import openai_call, explore_call
+from ideas import openai_call, explore_call, unique_idea_call
 import json
 app = Flask(__name__)
 
@@ -22,8 +22,9 @@ def explore():
     title = data.get('title', '')
     description = data.get('description', '')
     interests = f"{title}: {description}"
-    response = explore_call(interests)
+    response = unique_idea_call(interests) # unique_idea_call
     content = response.choices[0].message.content
+    print(content)
     return {"message": "Success", "explore": content}, 200
 
 
