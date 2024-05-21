@@ -7,6 +7,6 @@
 ```
 simultaneously in another terminal, run
 ```
-* > cd api
-* > flask run
+> * cd api
+> flask run
 ```
