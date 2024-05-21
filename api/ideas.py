@@ -35,3 +35,22 @@ Add many more than just 4 ideas, these are just the structure, and only return a
         max_tokens=1000,
     )
     return response
+
+def explore_call(card_information: str):
+    model="gpt-4o"
+    content_string = f"""
+You are given information about a topic the user is interested in exploring. Generate a feasible plan for the user to explore the topic. It must be detailed and provide a clear path for the user to follow. The information given is: {card_information}.
+"""
+    messages = [
+        {"role": "system", "content": content_string},
+    ]
+
+    response = completion(
+        model=model,
+        messages=messages,
+        stream=False,
+        temperature=0.7,
+        # response_format={"type": "json_object"},
+        max_tokens=1000,
+    )
+    return response

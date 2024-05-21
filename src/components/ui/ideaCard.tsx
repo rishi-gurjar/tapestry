@@ -13,11 +13,12 @@ interface IdeaCardProps {
   title: string;
   description: string;
   badge: string;
+  onClick: () => void; 
 }
 
-export function IdeaCard({ title, description, badge }: IdeaCardProps) {
+export function IdeaCard({ title, description, badge, onClick}: IdeaCardProps) {
   return (
-    <Card>
+    <Card onClick={onClick}>
       <CardHeader>
         <div>
         <CardTitle>{title}</CardTitle>
